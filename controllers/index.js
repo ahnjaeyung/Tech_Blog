@@ -5,7 +5,7 @@ const homeRoutes = require('./home-routes.js');
 // const dashboardRoutes = require()
 
 router.use('/', homeRoutes);
-// router.use('/api', apiRoutes);
+router.use('/api', apiRoutes);
 router.get('*', function(req, res) {
     res.render('login');
 })

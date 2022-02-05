@@ -3,7 +3,7 @@ const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-
+//show all posts
 router.get('/', withAuth, async (req, res) => {
   try {
     const allPostsData = await Post.findAll();
@@ -21,11 +21,33 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/new', withAuth, async (req,res) => {
+//new post
+router.get('/new', withAuth, async (req, res) => {
     try {
         res.status(200).render('new-post', {
             layout: 'dashboard',
             loggedIn: req.session.loggedIn
+        })
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+})
+
+//edit post
+router.get('/post/:id', withAuth, async (req, res) => {
+    try {
+        const postData = await Post.findByPk(req.params.id);
+        if (!postData) {
+            res.status(404).json({ message: 'No post found!'})
+            return;
+        }
+        const post = postData.get({ plain: true })
+        res.render('edit-post', {
+            post,
+            layout: 'dashboard',
+            loggedIn: req.session.loggedIn,
+            userSession: req.session.username
         })
     } catch (err) {
         console.log(err);

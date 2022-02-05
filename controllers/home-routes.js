@@ -6,19 +6,43 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    const allPostsData = await Post.findAll();
+    const allPostsData = await Post.findAll({
+      include: { model: User }
+    });
     const posts = allPostsData.map((post) =>
       post.get({ plain: true })
     );
     res.status(200).render('homepage', {
       posts,
       loggedIn: req.session.loggedIn,
+      userSession: req.session.username
     });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
+
+router.get('/post/:id', withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: { model: User }
+    })
+    if (!postData) {
+      res.status(404).json({ message: 'No post found!'})
+      return;
+    }
+    const post = postData.get({ plain: true })
+    res.render('single-post', {
+      post,
+      loggedIn: req.session.loggedIn,
+      userSession: req.session.username
+    })
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
 
 router.get('/signup', (req, res) => {
   if (req.session.loggedIn) {

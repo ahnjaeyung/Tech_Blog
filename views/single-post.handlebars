@@ -1,0 +1,12 @@
+<div>
+    <div>
+        <h2> {{post.title}} </h2>
+        <p> {{post.createdAt}} </p>
+        {{#if post.user.username}}
+        <p> {{post.user.username}} </p>
+        {{/if}}
+    </div>
+    <div>
+        <p> {{post.body}} </p>
+    </div>
+</div>

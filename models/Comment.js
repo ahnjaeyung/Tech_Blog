@@ -11,7 +11,11 @@ Comment.init(
     }
   },
   {
-    sequelize
+    sequelize,
+    timestamps: true,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'comment'
   }
 );
 

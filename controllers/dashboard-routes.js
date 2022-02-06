@@ -10,7 +10,7 @@ router.get('/', withAuth, async (req, res) => {
     const posts = allPostsData.map((post) =>
       post.get({ plain: true })
     );
-    res.status(200).render('all-posts-admin', {
+    res.status(200).render('all-posts', {
       posts,
       layout: 'dashboard',
       loggedIn: req.session.loggedIn,

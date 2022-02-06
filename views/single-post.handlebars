@@ -1,24 +1,22 @@
 <div>
-    <div>
-        <h2> {{post.title}} </h2>
-        <p name="post-id">{{post.id}}</p>
-        <p> {{post.createdAt}} </p>
+    <div class="card">
+        <h2 class="card-header"> {{post.title}} </h2>
+        <p class="card-header" name="post-id">{{post.id}}</p>
+        <p class="card-header"> {{post.createdAt}} </p>
         {{#if post.user.username}}
-        <p> {{post.user.username}} </p>
+        <p class="card-header"> {{post.user.username}} </p>
         {{/if}}
-    </div>
-    <div>
-        <p> {{post.body}} </p>
+        <p class="card-body"> {{post.body}} </p>
     </div>
     {{#each post.comments as |comment|}}
-    <div>
-        <p> {{comment.body}} </p>
-        <p> commented by: {{comment.user.username}} on {{comment.createdAt}}</p>
+    <div class="card">
+        <p class="card-header"> commented by: {{comment.user.username}} on {{comment.createdAt}}</p>
+        <p class="card-body"> {{comment.body}} </p>
     </div>
     {{/each}}
     <label for="comment">Share your thoughts:</label><br>
-    <textarea name="comment-body" id="comment" type="text"></textarea>
-    <button id="new-comment-form">Leave Comment</button>
+    <textarea name="comment-body" id="comment" type="text"  rows="5" cols="135"></textarea>
+    <button id="new-comment-form" class="btn btn-primary">Leave Comment</button>
 </div>
 
 <script src="/js/comment.js"></script>

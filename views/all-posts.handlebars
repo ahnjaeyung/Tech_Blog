@@ -1,15 +1,15 @@
 <section>
     {{#each posts as |post|}}
-    <div>
-        <a href="/post/{{post.id}}">
-        <div>
+    <a href="/post/{{post.id}}">
+    <div class="card">
+        <div class="card-header">
             <h2> {{post.title}} </h2>
             <p> {{post.createdAt}} </p>
         </div>
-        <div>
+        <div class="card-body">
             <p> {{post.body}} </p>
         </div>
-        </a>
     </div>
+    </a>
     {{/each}}
 </section>

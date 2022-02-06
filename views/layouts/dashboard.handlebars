@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tech Blog</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 
@@ -12,23 +13,23 @@
     <div>
         <header>
             <div>
-                <nav>
-                    <a href="/">Home</a>
-                    <a href="/dashboard">Dashboard</a>
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="/">Home</a>
+                    <a class="navbar-brand" href="/dashboard">Dashboard</a>
                     {{#if loggedIn}}
-                    <button id="logout-link">Logout</button>
+                    <button id="logout-link" class="btn btn-primary">Logout</button>
                     {{else}}
-                    <a href="/login">Login</a>
+                    <a class="navbar-brand" href="/login">Login</a>
                     {{/if}}
                 </nav>
+                <div class="jumbotron"></div>
             </div>
-            <h1>Dashboard</h1>
-            <a href="/dashboard/new"> <button>Create New Post</button> </a>
+            <a href="/dashboard/new" id="createPost"> <button>Create New Post</button> </a>
         </header>
 
         <main>
             {{{body}}}
-            
+
         </main>
 
         <script src="/js/logout.js"></script>

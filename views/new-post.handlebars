@@ -1,17 +1,21 @@
-<h2>New Post</h2>
+<div class="container">
+    <h2>New Post</h2>
 
-<form id = "new-post-form">
-    <div>
-        <label for="title">Post Title:</label><br>
-        <input name="post-title" type="text">
-    </div>
-    <div>
-        <label for="content">Post Content:</label><br>
-        <textarea name="post-body" id="postContent" type="text"></textarea>
-    </div>
-    <div>
-        <button type="submit">Submit</button>
-    </div>
-</form>
-
+    <form id="new-post-form">
+        <div class="form-group">
+            <label for="title">Post Title:</label><br>
+            <input name="post-title" type="text">
+        </div>
+        <div class="form-group">
+            <label for="content">Post Content:</label><br>
+            <textarea name="post-body" id="postContent" type="text" rows="10" cols="135"></textarea>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
 <script src="/js/new.js"></script>
+<script>
+    document.querySelector("#createPost").style.display="none";
+</script>

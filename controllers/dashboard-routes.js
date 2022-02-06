@@ -71,20 +71,4 @@ router.delete('/post/:id', withAuth, async (req, res) => {
     }
 })
 
-// router.get('/signup', (req, res) => {
-//   if (req.session.loggedIn) {
-//     res.redirect('/');
-//     return;
-//   }
-//   res.render('signup', {loggedIn: req.session.loggedIn});
-// });
-
-// router.get('/login', (req, res) => {
-//   if (req.session.loggedIn) {
-//     res.redirect('/');
-//     return;
-//   }
-//   res.render('login', {loggedIn: req.session.loggedIn});
-// });
-
 module.exports = router;

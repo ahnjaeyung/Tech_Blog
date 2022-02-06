@@ -55,6 +55,22 @@ router.get('/post/:id', withAuth, async (req, res) => {
     }
 })
 
+router.delete('/post/:id', withAuth, async (req, res) => {
+    try {
+        const postData = await Post.destroy({
+            where: { id: req.params.id }
+        });
+        console.log(postData)
+        if (postData) {
+            res.status(200)
+        }
+        
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+})
+
 // router.get('/signup', (req, res) => {
 //   if (req.session.loggedIn) {
 //     res.redirect('/');

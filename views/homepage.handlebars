@@ -1,5 +1,6 @@
 <article>
     {{#each posts as |post|}}
+    <a href="/post/{{post.id}}">
     <div>
         <h2>{{post.title}}</h2>
         <p> {{post.createdAt}} </p>
@@ -7,5 +8,6 @@
         <p> {{post.user.username}} </p>
         {{/if}}
     </div>
+    </a>
     {{/each}}
 </article>

@@ -3,21 +3,21 @@
 <form id = "edit-post-form">
     <div>
         <label for="title">Post Title:</label><br>
-        <input type="text" value="{{post.title}}">
+        <input name="post-title" type="text" value="{{post.title}}">
     </div>
     <div>
         <label for="content">Post Content:</label><br>
-        <textarea name="postBody" id="postContent" type="text"></textarea>
+        <textarea name="post-body" id="postContent" type="text"></textarea>
     </div>
     <div>
         <button type="submit">Submit</button>
     </div>
     <div>
         <label for="id">Post Id</label>
-        <input type="text" value="{{post.id}}">
+        <input name="post-id" type="text" value="{{post.id}}">
     </div>
 </form>
 
 <button id = "delete-btn">Delete</button>
 
-<script src="/js/new.js"></script>
+<script src="/js/edit.js"></script>

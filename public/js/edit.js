@@ -24,7 +24,7 @@ const deleteClickHandler = async function() {
   await fetch(`/api/post/${postId}`, {
     method: 'DELETE'
   });
-
+  console.log("deleted post id");
   document.location.replace('/dashboard');
 };
 

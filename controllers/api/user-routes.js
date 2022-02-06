@@ -11,11 +11,11 @@ router.post('/signup', async (req, res) => {
         });
         res.status(200).json(dbUserData);
 
-        // req.session.save(() => {
-        //     req.session.loggedIn = true;
+        req.session.save(() => {
+            req.session.loggedIn = true;
 
-        //     res.status(200).json(dbUserData);
-        // });
+            res.status(200).json(dbUserData);
+        });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -50,6 +50,8 @@ router.post('/login', async (req, res) => {
 
         req.session.save(() => {
             req.session.loggedIn = true;
+            req.session.userId = dbUserData.id;
+            req.session.username = dbUserData.username;
             console.log(
                 '🚀 ~ file: user-routes.js ~ line 57 ~ req.session.save ~ req.session.cookie',
                 req.session.cookie

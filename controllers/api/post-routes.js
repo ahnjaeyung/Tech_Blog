@@ -3,7 +3,7 @@ const { Post } = require('../../models');
 const withAuth = require("../../utils/auth");
 
 router.post('/', withAuth, async (req, res) => {
-    console.log("\n--------------------" + req.body + "--------------------\n")
+    console.log("\n--------------------" + req.session.userId + "--------------------\n")
     try {
         const postData = await Post.create({
             title: req.body.title,
